@@ -39,7 +39,7 @@ public class PosCommand {
         return "ERROR";
     }
 
-    @ShellMethod(value = "Print Products in the Cart", key = "v")
+    @ShellMethod(value = "View Products in the Cart", key = "v")
     public String viewCart() {
         return posService.viewCart();
     }
@@ -56,5 +56,17 @@ public class PosCommand {
             return posService.getCart().toString();
         }
         return "ERROR";
+    }
+
+    @ShellMethod(value = "Total Cost", key = "t")
+    public String totalCost() {
+        return "Total cost is: " + Double.toString(posService.total(posService.getCart()));
+    }
+
+    @ShellMethod(value = "Checkout", key = "c")
+    public String checkout() {
+        String paid = Double.toString(posService.total(posService.getCart())) + " is paid";
+        posService.emptyCart();
+        return paid;
     }
 }

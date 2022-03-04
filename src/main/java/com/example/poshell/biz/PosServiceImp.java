@@ -35,8 +35,8 @@ public class PosServiceImp implements PosService {
     }
 
     @Override
-    public void total(Cart cart) {
-
+    public double total(Cart cart) {
+        return cart.total();
     }
 
     @Override
