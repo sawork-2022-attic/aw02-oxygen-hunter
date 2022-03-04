@@ -18,6 +18,12 @@ public interface PosService {
 
     public boolean add(String productId, int amount);
 
+    public String viewCart();
+
+    public void emptyCart();
+
+    public boolean modifyCart(String productId, int amount);
+
 
     public List<Product> products();
 }

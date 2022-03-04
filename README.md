@@ -46,3 +46,15 @@ Please use asciinema (https://asciinema.org) to record a demo and submit the url
 
 And please elaborate your understanding in layered systems via this homework in your README.md.
 
+# comments
+
+I implemented 3 more commands: `print`, `empty` and `modify`.
+
+Concerning the understanding of Layered system, I will take the execution of `modify` command as an example:
+```
+shell:> m "PD1" 6                       // user interacts with Presentation Layer(Shell)
+PosCommand::modifyCart("PD1", 6)        // Presentation Layer passes request to Business Logic Layer(PosCommand.class)
+PosService::modifyCart("PD1", 6)        // PosService.class is also in Business Logic Layer
+Cart::modifyCart("PD1", 6)              // Business Logic Layer passes data to Data Access Layer(Cart.class)
+Cart modify Cart Database(in memory)    // Data Access Layer accesses data
+```

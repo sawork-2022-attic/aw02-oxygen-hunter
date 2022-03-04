@@ -14,6 +14,30 @@ public class Cart {
         return items.add(item);
     }
 
+    public void emptyCart() {
+        items.clear();
+    }
+
+    public boolean modifyCart(String productId, int amount) {
+        boolean contains = false;
+        Item itemToRemove = null;
+        for (Item item:items) {
+            if (item.getProduct().getId().equals(productId)) {
+                contains = true;
+                if (amount == 0) {
+                    itemToRemove = item;
+                } else {
+                    item.setAmount(amount);
+                }
+                break;
+            }
+        }
+        if (itemToRemove != null) {
+            items.remove(itemToRemove);
+        }
+        return contains;
+    }
+
     @Override
     public String toString() {
         if (items.size() ==0){
