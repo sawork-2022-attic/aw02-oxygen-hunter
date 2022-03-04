@@ -48,7 +48,7 @@ And please elaborate your understanding in layered systems via this homework in 
 
 # comments
 
-I implemented 3 more commands: `print`, `empty` and `modify`.
+I implemented 5 commands: `print`, `empty`, `modify`, `checkout` and `total`.
 
 Concerning the understanding of Layered system, I will take the execution of `modify` command as an example:
 ```
